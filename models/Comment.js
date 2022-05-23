@@ -17,17 +17,17 @@ Comment.init(
         comment: {
             type: DataTypes.STRING,
             allowNull: false,
-            validate: {
-                idsNumeric: true,
-                len: [10, 13],
-            },
         },
         username: {
             type: DataTypes.STRING(),
-            allowNull: true,
+            allowNull: false,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
         },
         date_created: {
-            type: DataTypes.STRING,
+            type: DataTypes.DATEONLY,
             allowNull: false,
         },
         user_id: {
@@ -56,4 +56,4 @@ Comment.init(
     // }
 );
 
-module.exports = Book;
+module.exports = Comment;
