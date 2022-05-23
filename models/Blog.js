@@ -1,9 +1,12 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Library extends Model { }
+// TO-DO: Maybe add path here?
 
-Library.init(
+
+class Blog extends Model { }
+
+Blog.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -11,28 +14,19 @@ Library.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        name: {
+        title: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        zip_code: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                // Does a string need to be numeric? Per the docs, this would only allow numbers. However it would be a truthy number in a == scenario.
-                isNumeric: true,
-                len: [5, 5],
-            },
-        },
-        address: {
+        contents: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        lat: {
+        username: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        lon: {
+        date_created: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -49,8 +43,8 @@ Library.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'library',
+        modelName: 'blog',
     }
 )
 
-module.exports = Library;
+module.exports = Blog;

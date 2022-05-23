@@ -1,40 +1,40 @@
 const User = require('./User');
-const Library = require('./Library');
-const LibraryBook = require('./LibraryBook');
-const Book = require('./Book');
+const Blog = require('./Blog');
+const PostComment = require('./PostComment');
+const Comment = require('./Comment');
 
-User.hasMany(Library, {
+User.hasMany(Blog, {
     foreignKey: `user_id`,
     onDelete: `SET NULL`,
 });
 
-Library.belongsTo(User, {
+Blog.belongsTo(User, {
     foreignKey: `user_id`,
 });
 
-User.hasMany(LibraryBook, {
+User.hasMany(PostComment, {
     foreignKey: `user_id`,
     onDelete: `SET NULL`,
 });
 
-LibraryBook.belongsTo(User, {
+PostComment.belongsTo(User, {
     foreignKey: `user_id`,
 });
 
-Book.belongsToMany(Library, {
+Comment.belongsToMany(Blog, {
     through: {
-        model: LibraryBook,
+        model: PostComment,
         unique: false
     },
-    as: `libraries`
+    as: `comments`
 });
 
-Library.belongsToMany(Book, {
+Blog.belongsToMany(Comment, {
     through: {
-        model: LibraryBook,
+        model: PostComment,
         unique: false
     },
-    as: `books`
+    as: `blogs`
 });
 
-module.exports = { User, Library, Book, LibraryBook };
+module.exports = { User, Blog, Comment, PostComment };
