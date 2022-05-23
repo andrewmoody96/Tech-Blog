@@ -16,7 +16,7 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    username: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -35,22 +35,6 @@ User.init(
         len: [8],
       },
     },
-    zip_code: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        isNumeric: true,
-        len: [5, 5],
-      },
-    },
-    // Placeholder for storing image urls for profile picture.
-    // image_url: {
-    //   type: DataTypes.STRING,
-    //   allowNull: true,
-    //   validate: {
-    //     isUrl: true,
-    //   }
-    // },
   },
   {
     hooks: {
