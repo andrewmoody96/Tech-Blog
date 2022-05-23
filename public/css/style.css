@@ -1,0 +1,43 @@
+/* FONT-FAMILY RULES */
+
+/* font-family: 'Caveat', cursive;
+font-family: 'Comfortaa', cursive; */
+
+
+
+
+body {
+    width: 100vw;
+    backround-image: url("/images/background.png");
+    background-position: center;
+    background-width: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+};
+
+
+h1, h2, h3, h4, h5, h6 {
+    color: white;
+}
+
+/* #bodyContainer {
+    background-image: url("/images/background3.jpg");
+    opacity: 0.2;
+} */
+
+
+/* nav button {
+    /* color: black; */
+
+
+/* }
+
+
+/* div {
+    color: black;
+}; */
+
+
+/* p {
+    color: white;
+}; */
