@@ -20,62 +20,53 @@
       rel="stylesheet"
     />
   </head>
-  <body class="w-100" style="background-image: url('../public/images/background.jpg'); overflow-x: hidden;">
-    <div style="background-image: url('../public/images/background.jpg');">
-      <div style="background-color: rgba(245, 235, 215, 0.5);">
+  <body class="w-100" style="background-color: #262626; overflow-x: hidden; color: rgb(122, 248, 85);">
+    <div style="background-color: #262626;">
+      <div style="background-color: rgba(38, 38, 38, 0.5);">
         <header
           class="sticky-top d-flex justify-content-between align-center row my-0 p-2 shadow p-3 mb-5 rounded"
-          style="background-color: #A6B7BE;"
+          style="background-color: #262626;"
         >
-          <nav class="col text-right" style="font-family: 'Comfortaa', cursive;" role="navigation">
+          <nav class="col text-center" style="font-family: 'Comfortaa', cursive;" role="navigation">
+            <h1 class="pb-2">Moody's Tech Blog</h1>
             <button
               onclick="location.href='/'"
-              class="btn btn-outline-dark shadow"
+              class="btn btn-outline-light shadow"
               id="home"
-              style="background-color: #F5EBD7;"
+              style="background-color: #262626; color: rgb(122, 248, 85);"
             >Home</button>
-            <!-- {{#if logged_in}} -->
+            {{#if logged_in}}
               <button
                 onclick="location.href='/dashboard'"
-                class="btn btn-outline-dark shadow"
+                class="btn btn-outline-light shadow"
                 id="dashboard"
-                style="background-color: #F5EBD7;"
+                style="background-color: #262626; color: rgb(122, 248, 85);"
               >Dashboard</button>
               <button
-                class="btn btn-outline-dark shadow"
+                class="btn btn-outline-light shadow"
                 id="logout"
-                style="background-color: #F5EBD7;"
+                style="background-color: #262626; color: rgb(122, 248, 85);"
               >Logout</button>
-            <!-- {{else}} -->
+            {{else}}
               <button
                 onclick="location.href='/login'"
-                class="btn btn-outline-dark shadow"
+                class="btn btn-outline-light shadow"
                 id="login"
-                style="background-color: #F5EBD7;"
+                style="background-color: #262626; color: rgb(122, 248, 85);"
               >Login</button>
-            <!-- {{/if}} -->
+            {{/if}}
           </nav>
         </header>
         <main class="container container-fluid mt-5">
-          <!-- {{{body}}} -->
-          <div>
-              <p>
-                  a;sldkf;alskdf;asd;fa;skdf;<br>;;laksjd;flkasd;flkas;<br>;lkas;dlkjas;dlkfja;s <br>
-              </p>
-          </div>
-          <div>
-              <p>
-                a;sldkf;alskdf;asd;fa;skdf;<br>;;laksjd;flkasd;flkas;<br>;lkas;dlkjas;dlkfja;s <br>
-              </p>
-          </div>
+          {{{body}}}
         </main>
-        <footer class="text-center text-dark mt-5 pb-3" style="font-family: 'Comfortaa', cursive;">
+        <footer class="text-center mt-5 pb-3" style="font-family: 'Comfortaa', cursive; color: rgb(122, 248, 85);">
           built by Andrew Moody - &copy; 2022
         </footer>
       </div>
     </div>
-    <!-- {{#if logged_in}} -->
+    {{#if logged_in}}
       <script src="/js/logout.js"></script>
-    <!-- {{/if}} -->
+    {{/if}}
   </body>
 </html>
