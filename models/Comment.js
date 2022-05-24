@@ -1,8 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const Blog = require('./Blog');
 
-// TO-DO: Change this path.
-const { bookApi, bulkApi } = require('../utils/bookApi.js');
 
 class Comment extends Model { }
 
@@ -18,14 +17,6 @@ Comment.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        username: {
-            type: DataTypes.STRING(),
-            allowNull: false,
-            references: {
-                model: 'user',
-                key: 'id'
-            }
-        },
         date_created: {
             type: DataTypes.DATEONLY,
             allowNull: false,
@@ -37,23 +28,21 @@ Comment.init(
                 key: 'id',
             },
         },
+        blog_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'blog',
+                key: 'id',
+            }
+        }
     },
-    // {
-    //     hooks: {
-    //         async beforeBulkCreate(newCommentData) {
-    //             return await bulkApi(newCommentData);
-    //         },
-    //         async beforeCreate(newBookData) {
-    //             console.log("WE HIT BEFORE CREATE:", '\n', newBookData);
-    //             return await bookApi(newBookData);
-    //         },
-    //     },
-    //     sequelize,
-    //     timestamps: false,
-    //     freezeTableName: true,
-    //     underscored: true,
-    //     modelName: 'book',
-    // }
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'comment',
+    }
 );
 
 module.exports = Comment;
