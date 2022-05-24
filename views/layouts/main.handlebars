@@ -25,12 +25,12 @@
           class="sticky-top d-flex justify-content-between align-center row my-0 p-2 shadow p-3 mb-5 rounded"
           style="background-color: #A6B7BE;"
         >
-          <img
+          {{!-- <img
             src="/images/logoNav.png"
             alt="Fully Booked Logo"
             class=""
             style="max-width: 25%; height: 100px; width: auto;"
-          />
+          /> --}}
           <nav class="col text-right" style="font-family: 'Comfortaa', cursive;" role="navigation">
             <button
               onclick="location.href='/'"
@@ -38,19 +38,6 @@
               id="home"
               style="background-color: #F5EBD7;"
             >Home</button>
-            <button
-              onclick="location.href='/browse'"
-              class="btn btn-outline-dark shadow"
-              id="libraries"
-              style="background-color: #F5EBD7;"
-            >Browse Libraries</button>
-            <button
-              onclick="location.href='/search'"
-              class="btn btn-outline-dark shadow"
-              id="search"
-              style="background-color: #F5EBD7;"
-              s
-            >Search</button>
             {{#if logged_in}}
               <button
                 onclick="location.href='/dashboard'"
@@ -77,7 +64,7 @@
           {{{body}}}
         </main>
         <footer class="text-center text-dark mt-5 pb-3" style="font-family: 'Comfortaa', cursive;">
-          &copy; 2022 - Miguel Escobar, Andrew Moody, & Natalie Triffo.
+          &copy; 2022 - Andrew Moody
         </footer>
       </div>
     </div>
