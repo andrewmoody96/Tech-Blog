@@ -17,7 +17,7 @@ const commentData = [
         content: "You're on your own with this one. I hate printers.",
         blog_id: 3,
         user_id: 1,
-        date_created: "2021-08-22"
+        date_created: "2021-02-22"
     },
 ];
 
