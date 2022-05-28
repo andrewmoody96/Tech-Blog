@@ -1,28 +1,29 @@
 const { User } = require(`../models`);
+const bcrypt = require("bcrypt");
 
 const userData = [
     {
-        username: "rbobby96",
-        email: "ricky@email.com",
+        username: "amoody",
+        email: "amoody@email.com",
         password: "password",
     },
     {
-        username: "xena96",
-        email: "xena@email.com",
+        username: "drausch",
+        email: "drausch@email.com",
         password: "password",
     },
     {
-        username: "vferdinand96",
-        email: "vincent@email.com",
+        username: "jdaley",
+        email: "jdaley@email.com",
         password: "password",
     },
-    {
-        username: "jjocat1",
-        email: "john@email.com",
-        password: "password",
-
-    }
 ];
+
+User.beforeBulkCreate(async (users) => {
+    for (const user of users) {
+        user.password = await bcrypt.hash(user.password, 10);
+    }
+})
 
 const seedUser = () => User.bulkCreate(userData);
 

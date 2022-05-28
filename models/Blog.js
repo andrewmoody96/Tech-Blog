@@ -1,8 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-// TO-DO: Maybe add path here?
-
 
 class Blog extends Model { }
 
@@ -22,13 +20,10 @@ Blog.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        username: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
         date_created: {
-            type: DataTypes.STRING,
+            type: DataTypes.DATEONLY,
             allowNull: false,
+            defaultValue: DataTypes.NOW,
         },
         user_id: {
             type: DataTypes.INTEGER,
