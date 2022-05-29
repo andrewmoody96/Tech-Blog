@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-// Hitting the route successfully. Console log works well.
 router.post('/login', async (req, res) => {
   try {
     console.log('Login route OK')
@@ -35,7 +34,6 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// This works 100%
 router.post(`/signup`, async (req, res) => {
   try {
     console.log('Signup route OK')
@@ -52,7 +50,6 @@ router.post(`/signup`, async (req, res) => {
   }
 });
 
-// Hitting the console.log
 router.post('/logout', (req, res) => {
   console.log("Logout route OK")
   if (req.session.logged_in) {

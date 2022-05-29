@@ -1,15 +1,10 @@
-const router = require('express').Router();
-const libraryRoutes = require('./libraryRoutes');
-const userRoutes = require('./userRoutes');
-const libraryBookRoutes = require('./libraryBookRoutes');
-const bookRoutes = require('./bookRoutes');
+const router = require("express").Router();
+const userRoutes = require("./userRoutes");
+const blogRoutes = require("./blogRoutes")
+const commentRoutes = require("./commentRoutes")
 
-router.use('/users', userRoutes);
-// library route
-router.use('/library', libraryRoutes);
-// librarybook route
-router.use('/librarybook', libraryBookRoutes);
-// book routes
-router.use('/books', bookRoutes);
+router.use("/users", userRoutes);
+router.use("/posts", blogRoutes);
+router.use("/comments", commentRoutes)
 
 module.exports = router;
