@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const { User, Blog, PostComment, Comment } = require("../models");
+const { User, Blog } = require("../models");
 const withAuth = require("../utils/auth");
-const { Op } = require("sequelize");
+// const { Op } = require("sequelize");
 
 // HOME PAGE
 router.get("/", async (req, res) => {
@@ -23,32 +23,38 @@ router.get("/login", (req, res) => {
     console.log("Login route OK");
     return;
   }
-
   res.render("login");
 });
 
 // SPECIFIC BLOG BY ID
-router.get("/blog/:id", async (req, res) => {
+router.get("/dashboard/:id", withAuth, async (req, res) => {
   try {
     // Get User's checked owned libraries to display here.
-    const libraryData = await Blog.findByPk(req.params.id, {
-      include: [{ model: Book, through: PostComment, as: "books" }],
+    const userData = await User.findByPk(req.params.id);
+
+    const user = userData.get({ plain: true });
+    console.log(user);
+
+    const blogData = await Blog.findAll({
+      where: { user_id: req.params.id },
     });
+    const blogs = blogData.map((post) => post.get({ plain: true }));
 
-    const library = libraryData.get({ plain: true });
-    console.log(library);
-
-    res.render("libraryinfo", { library, logged_in: req.session.logged_in });
+    res.render("dashboard", {
+      user,
+      posts,
+      logged_in: req.session.logged_in,
+    });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 // 404 ERROR
-router.get('/404', async (req, res) => {
+router.get("/404", async (req, res) => {
   try {
     res.render("404page");
-  }catch (err) {
+  } catch (err) {
     res.status(500).json(err);
   }
 });
